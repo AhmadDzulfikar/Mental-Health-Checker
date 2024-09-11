@@ -1,9 +1,9 @@
+import uuid
 from django.db import models
 
 
 class MoodEntry(models.Model):
-    # mood, time, feelings, dan mood_intensity adalah atribut atau field pada model. 
-    # Setiap field memiliki tipe data yang sesuai seperti CharField, DateField, IntegerField, dan TextField.
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)  # tambahkan baris ini
     mood = models.CharField(max_length=255)
     time = models.DateField(auto_now_add=True)
     feelings = models.TextField()
